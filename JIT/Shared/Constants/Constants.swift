@@ -12,6 +12,7 @@ enum Constants {
     
     enum Segues {
         static let showTerminals = "showTerminals"
+        static let showDetails = "showDetails"
     }
     
     enum Storyboards {

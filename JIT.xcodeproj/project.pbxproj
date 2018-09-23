@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		064177F22157E8620011B8C4 /* TerminalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064177F12157E8620011B8C4 /* TerminalCollectionViewCell.swift */; };
+		064177F42158124B0011B8C4 /* SendDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064177F32158124B0011B8C4 /* SendDataViewController.swift */; };
 		064C2439214E4610004ED165 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C2438214E4610004ED165 /* AppDelegate.swift */; };
-		064C243B214E4610004ED165 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C243A214E4610004ED165 /* ViewController.swift */; };
 		064C243E214E4610004ED165 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 064C243C214E4610004ED165 /* Main.storyboard */; };
 		064C2440214E4613004ED165 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 064C243F214E4613004ED165 /* Assets.xcassets */; };
 		064C2443214E4613004ED165 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 064C2441214E4613004ED165 /* LaunchScreen.storyboard */; };
@@ -23,9 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		064177F12157E8620011B8C4 /* TerminalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalCollectionViewCell.swift; sourceTree = "<group>"; };
+		064177F32158124B0011B8C4 /* SendDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendDataViewController.swift; sourceTree = "<group>"; };
 		064C2435214E4610004ED165 /* JIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		064C2438214E4610004ED165 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		064C243A214E4610004ED165 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		064C243D214E4610004ED165 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		064C243F214E4613004ED165 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		064C2442214E4613004ED165 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +56,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		064177F02157E8390011B8C4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				064177F12157E8620011B8C4 /* TerminalCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		064C242C214E4610004ED165 = {
 			isa = PBXGroup;
 			children = (
@@ -83,7 +93,6 @@
 				064C244B214E46FC004ED165 /* Terminals */,
 				064C244A214E46E0004ED165 /* Splash */,
 				064C2438214E4610004ED165 /* AppDelegate.swift */,
-				064C243A214E4610004ED165 /* ViewController.swift */,
 				064C243C214E4610004ED165 /* Main.storyboard */,
 				064C243F214E4613004ED165 /* Assets.xcassets */,
 				064C2441214E4613004ED165 /* LaunchScreen.storyboard */,
@@ -103,6 +112,7 @@
 		064C244B214E46FC004ED165 /* Terminals */ = {
 			isa = PBXGroup;
 			children = (
+				064177F02157E8390011B8C4 /* Cell */,
 				06A9F8D1214E55AD00647ED8 /* TerminalsViewController.swift */,
 			);
 			path = Terminals;
@@ -111,6 +121,7 @@
 		064C244C214E4718004ED165 /* SendData */ = {
 			isa = PBXGroup;
 			children = (
+				064177F32158124B0011B8C4 /* SendDataViewController.swift */,
 			);
 			path = SendData;
 			sourceTree = "<group>";
@@ -298,10 +309,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				064C244E214E4809004ED165 /* SplashViewController.swift in Sources */,
-				064C243B214E4610004ED165 /* ViewController.swift in Sources */,
 				06A9F8DD2150429100647ED8 /* ViewControllersFactory.swift in Sources */,
 				064C2452214E4C8E004ED165 /* UIColor+Styleguide.swift in Sources */,
 				06A9F8D2214E55AD00647ED8 /* TerminalsViewController.swift in Sources */,
+				064177F42158124B0011B8C4 /* SendDataViewController.swift in Sources */,
+				064177F22157E8620011B8C4 /* TerminalCollectionViewCell.swift in Sources */,
 				064C2439214E4610004ED165 /* AppDelegate.swift in Sources */,
 				06A9F8D821503AEF00647ED8 /* UICheckbox.swift in Sources */,
 				06A9F8D6214E71F900647ED8 /* Constants.swift in Sources */,

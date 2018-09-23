@@ -11,11 +11,12 @@ import UIKit
 
 class ViewControllersFactory {
     
-    static func getTerminals() -> TerminalsViewController {
+    static func getTerminals() -> UINavigationController {
         
         let storyboard = UIStoryboard(name: Constants.Storyboards.main, bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: Constants.ViewControllers.terminalsViewController) as! TerminalsViewController
-        
-        return viewController
+        let navig = UINavigationController()
+        navig.viewControllers = [viewController]
+        return navig
     }
 }

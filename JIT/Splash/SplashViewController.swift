@@ -24,6 +24,7 @@ class SplashViewController: UIViewController {
     
     private func setup() {
         
+        setupContinueButton()
         checkboxButton.addTarget(self, action: #selector(checkboxTapped), for: .touchUpInside)
     }
     
