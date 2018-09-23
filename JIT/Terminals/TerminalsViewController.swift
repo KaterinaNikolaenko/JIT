@@ -41,6 +41,9 @@ class TerminalsViewController: UIViewController {
     private func setupNavigationBar() {
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = backButton
     }
 }
 

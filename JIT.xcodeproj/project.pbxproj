@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		064177F22157E8620011B8C4 /* TerminalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064177F12157E8620011B8C4 /* TerminalCollectionViewCell.swift */; };
 		064177F42158124B0011B8C4 /* SendDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064177F32158124B0011B8C4 /* SendDataViewController.swift */; };
+		064177F82158230D0011B8C4 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064177F72158230D0011B8C4 /* BaseNavigationController.swift */; };
+		064177FC2158262E0011B8C4 /* UnderlinedFieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 064177FB2158262E0011B8C4 /* UnderlinedFieldView.xib */; };
+		064177FE215826560011B8C4 /* UnderlinedFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064177FD215826560011B8C4 /* UnderlinedFieldView.swift */; };
+		0641780021582E620011B8C4 /* XibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064177FF21582E620011B8C4 /* XibLoadable.swift */; };
+		0641780221583BC40011B8C4 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0641780121583BC40011B8C4 /* UIView.swift */; };
+		0641780421583C5C0011B8C4 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0641780321583C5C0011B8C4 /* UITextField.swift */; };
 		064C2439214E4610004ED165 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C2438214E4610004ED165 /* AppDelegate.swift */; };
 		064C243E214E4610004ED165 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 064C243C214E4610004ED165 /* Main.storyboard */; };
 		064C2440214E4613004ED165 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 064C243F214E4613004ED165 /* Assets.xcassets */; };
@@ -26,6 +32,12 @@
 /* Begin PBXFileReference section */
 		064177F12157E8620011B8C4 /* TerminalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalCollectionViewCell.swift; sourceTree = "<group>"; };
 		064177F32158124B0011B8C4 /* SendDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendDataViewController.swift; sourceTree = "<group>"; };
+		064177F72158230D0011B8C4 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		064177FB2158262E0011B8C4 /* UnderlinedFieldView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UnderlinedFieldView.xib; sourceTree = "<group>"; };
+		064177FD215826560011B8C4 /* UnderlinedFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedFieldView.swift; sourceTree = "<group>"; };
+		064177FF21582E620011B8C4 /* XibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibLoadable.swift; sourceTree = "<group>"; };
+		0641780121583BC40011B8C4 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		0641780321583C5C0011B8C4 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		064C2435214E4610004ED165 /* JIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		064C2438214E4610004ED165 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		064C243D214E4610004ED165 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,6 +74,24 @@
 				064177F12157E8620011B8C4 /* TerminalCollectionViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		064177F9215825F30011B8C4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				064177FA215826110011B8C4 /* UnderlinedField */,
+				064177FF21582E620011B8C4 /* XibLoadable.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		064177FA215826110011B8C4 /* UnderlinedField */ = {
+			isa = PBXGroup;
+			children = (
+				064177FB2158262E0011B8C4 /* UnderlinedFieldView.xib */,
+				064177FD215826560011B8C4 /* UnderlinedFieldView.swift */,
+			);
+			path = UnderlinedField;
 			sourceTree = "<group>";
 		};
 		064C242C214E4610004ED165 = {
@@ -129,6 +159,8 @@
 		064C244F214E488A004ED165 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				064177F9215825F30011B8C4 /* View */,
+				064177F72158230D0011B8C4 /* BaseNavigationController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -138,6 +170,8 @@
 			children = (
 				064C2451214E4C8E004ED165 /* UIColor+Styleguide.swift */,
 				06A9F8D721503AEF00647ED8 /* UICheckbox.swift */,
+				0641780121583BC40011B8C4 /* UIView.swift */,
+				0641780321583C5C0011B8C4 /* UITextField.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -245,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				064C2443214E4613004ED165 /* LaunchScreen.storyboard in Resources */,
+				064177FC2158262E0011B8C4 /* UnderlinedFieldView.xib in Resources */,
 				064C2440214E4613004ED165 /* Assets.xcassets in Resources */,
 				064C243E214E4610004ED165 /* Main.storyboard in Resources */,
 			);
@@ -313,8 +348,13 @@
 				064C2452214E4C8E004ED165 /* UIColor+Styleguide.swift in Sources */,
 				06A9F8D2214E55AD00647ED8 /* TerminalsViewController.swift in Sources */,
 				064177F42158124B0011B8C4 /* SendDataViewController.swift in Sources */,
+				0641780021582E620011B8C4 /* XibLoadable.swift in Sources */,
+				064177FE215826560011B8C4 /* UnderlinedFieldView.swift in Sources */,
 				064177F22157E8620011B8C4 /* TerminalCollectionViewCell.swift in Sources */,
 				064C2439214E4610004ED165 /* AppDelegate.swift in Sources */,
+				064177F82158230D0011B8C4 /* BaseNavigationController.swift in Sources */,
+				0641780221583BC40011B8C4 /* UIView.swift in Sources */,
+				0641780421583C5C0011B8C4 /* UITextField.swift in Sources */,
 				06A9F8D821503AEF00647ED8 /* UICheckbox.swift in Sources */,
 				06A9F8D6214E71F900647ED8 /* Constants.swift in Sources */,
 				06A9F8DB215041C400647ED8 /* ApplicationRouter.swift in Sources */,

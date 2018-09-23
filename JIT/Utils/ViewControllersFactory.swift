@@ -15,7 +15,7 @@ class ViewControllersFactory {
         
         let storyboard = UIStoryboard(name: Constants.Storyboards.main, bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: Constants.ViewControllers.terminalsViewController) as! TerminalsViewController
-        let navig = UINavigationController()
+        let navig = BaseNavigationController()
         navig.viewControllers = [viewController]
         return navig
     }
