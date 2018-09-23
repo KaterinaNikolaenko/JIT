@@ -46,7 +46,6 @@ extension SplashViewController {
     
     @IBAction func showTerminalsButtonAction(_ sender: Any) {
         
-//        performSegue(withIdentifier: Constants.Segues.showTerminals, sender: self)
         let vc = ViewControllersFactory.getTerminals()
         ApplicationRouter.setWithTransition(vc, animation: .transitionFlipFromRight, duration: 0.5, completion: nil)
     }

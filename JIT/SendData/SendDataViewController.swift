@@ -10,8 +10,12 @@ import UIKit
 
 class SendDataViewController: UIViewController {
 
+    //UI
     @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var confirmButton: UIButton!
     
+    // MARK: View Controller lifecyle
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -34,5 +38,15 @@ class SendDataViewController: UIViewController {
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.title = "Some title"
+    }
+}
+
+// MARK: Actions
+extension SendDataViewController {
+    
+    @IBAction func sendButtonAction(_ sender: Any) {
+    }
+    
+    @IBAction func confirmButtonAction(_ sender: Any) {
     }
 }

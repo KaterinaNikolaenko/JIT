@@ -10,8 +10,10 @@ import UIKit
 
 class TerminalsViewController: UIViewController {
 
+    //UI
     @IBOutlet weak var collectionView: UICollectionView!
     
+    // MARK: View Controller lifecyle
     override func viewDidLoad() {
         
         super.viewDidLoad()
