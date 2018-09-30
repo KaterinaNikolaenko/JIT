@@ -26,12 +26,27 @@ class SplashViewController: UIViewController {
         
         setupContinueButton()
         checkboxButton.addTarget(self, action: #selector(checkboxTapped), for: .touchUpInside)
+        
+        getDeviceID()
+        preauthorize()
     }
     
     private func setupContinueButton() {
         
         continueButton.isEnabled = checkboxButton.isSelected
         continueButton.backgroundColor = checkboxButton.isSelected ? .primaryYellow : .gray
+    }
+    
+    private func getDeviceID() {
+        
+        let deviceID = UIDevice.current.identifierForVendor?.uuidString
+        UserDefaults.deviceID = deviceID
+    }
+    
+    private func preauthorize() {
+        
+        let apiService = ApiService()
+        apiService.preauthorize()
     }
     
     @objc

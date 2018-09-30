@@ -15,6 +15,12 @@
 		0641780021582E620011B8C4 /* XibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064177FF21582E620011B8C4 /* XibLoadable.swift */; };
 		0641780221583BC40011B8C4 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0641780121583BC40011B8C4 /* UIView.swift */; };
 		0641780421583C5C0011B8C4 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0641780321583C5C0011B8C4 /* UITextField.swift */; };
+		064178082160C4D30011B8C4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064178072160C4D30011B8C4 /* NetworkManager.swift */; };
+		0641780A2160C51C0011B8C4 /* ApiModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064178092160C51C0011B8C4 /* ApiModels.swift */; };
+		0641780C2160C5C80011B8C4 /* ApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0641780B2160C5C80011B8C4 /* ApiEndpoints.swift */; };
+		0641780E2160C5D80011B8C4 /* Timberjack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0641780D2160C5D80011B8C4 /* Timberjack.swift */; };
+		064178102160C67E0011B8C4 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0641780F2160C67E0011B8C4 /* UserDefaults.swift */; };
+		064178142160ECF10011B8C4 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064178132160ECF10011B8C4 /* ApiService.swift */; };
 		064C2439214E4610004ED165 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C2438214E4610004ED165 /* AppDelegate.swift */; };
 		064C243E214E4610004ED165 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 064C243C214E4610004ED165 /* Main.storyboard */; };
 		064C2440214E4613004ED165 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 064C243F214E4613004ED165 /* Assets.xcassets */; };
@@ -38,6 +44,12 @@
 		064177FF21582E620011B8C4 /* XibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibLoadable.swift; sourceTree = "<group>"; };
 		0641780121583BC40011B8C4 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		0641780321583C5C0011B8C4 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		064178072160C4D30011B8C4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		064178092160C51C0011B8C4 /* ApiModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiModels.swift; sourceTree = "<group>"; };
+		0641780B2160C5C80011B8C4 /* ApiEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoints.swift; sourceTree = "<group>"; };
+		0641780D2160C5D80011B8C4 /* Timberjack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timberjack.swift; sourceTree = "<group>"; };
+		0641780F2160C67E0011B8C4 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		064178132160ECF10011B8C4 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		064C2435214E4610004ED165 /* JIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		064C2438214E4610004ED165 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		064C243D214E4610004ED165 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -94,6 +106,50 @@
 			path = UnderlinedField;
 			sourceTree = "<group>";
 		};
+		064178052160C4770011B8C4 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				064C244A214E46E0004ED165 /* Splash */,
+				064C244B214E46FC004ED165 /* Terminals */,
+				064C244C214E4718004ED165 /* SendData */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		064178062160C4BD0011B8C4 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				064178092160C51C0011B8C4 /* ApiModels.swift */,
+				0641780B2160C5C80011B8C4 /* ApiEndpoints.swift */,
+				064178072160C4D30011B8C4 /* NetworkManager.swift */,
+				0641780D2160C5D80011B8C4 /* Timberjack.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		064178112160ECCA0011B8C4 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				064178122160ECDF0011B8C4 /* Api */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		064178122160ECDF0011B8C4 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				064178132160ECF10011B8C4 /* ApiService.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		064178152160F0CC0011B8C4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		064C242C214E4610004ED165 = {
 			isa = PBXGroup;
 			children = (
@@ -115,13 +171,13 @@
 		064C2437214E4610004ED165 /* JIT */ = {
 			isa = PBXGroup;
 			children = (
+				064178152160F0CC0011B8C4 /* Model */,
+				064178112160ECCA0011B8C4 /* Service */,
 				06A9F8D9215041B000647ED8 /* Utils */,
 				06A9F8D3214E71D900647ED8 /* Shared */,
 				064C2450214E4C73004ED165 /* Extension */,
 				064C244F214E488A004ED165 /* Base */,
-				064C244C214E4718004ED165 /* SendData */,
-				064C244B214E46FC004ED165 /* Terminals */,
-				064C244A214E46E0004ED165 /* Splash */,
+				064178052160C4770011B8C4 /* Scenes */,
 				064C2438214E4610004ED165 /* AppDelegate.swift */,
 				064C243C214E4610004ED165 /* Main.storyboard */,
 				064C243F214E4613004ED165 /* Assets.xcassets */,
@@ -172,6 +228,7 @@
 				06A9F8D721503AEF00647ED8 /* UICheckbox.swift */,
 				0641780121583BC40011B8C4 /* UIView.swift */,
 				0641780321583C5C0011B8C4 /* UITextField.swift */,
+				0641780F2160C67E0011B8C4 /* UserDefaults.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -179,6 +236,7 @@
 		06A9F8D3214E71D900647ED8 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				064178062160C4BD0011B8C4 /* Network */,
 				06A9F8D4214E71E700647ED8 /* Constants */,
 			);
 			path = Shared;
@@ -344,17 +402,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				064C244E214E4809004ED165 /* SplashViewController.swift in Sources */,
+				0641780C2160C5C80011B8C4 /* ApiEndpoints.swift in Sources */,
 				06A9F8DD2150429100647ED8 /* ViewControllersFactory.swift in Sources */,
 				064C2452214E4C8E004ED165 /* UIColor+Styleguide.swift in Sources */,
 				06A9F8D2214E55AD00647ED8 /* TerminalsViewController.swift in Sources */,
+				064178142160ECF10011B8C4 /* ApiService.swift in Sources */,
+				064178082160C4D30011B8C4 /* NetworkManager.swift in Sources */,
 				064177F42158124B0011B8C4 /* SendDataViewController.swift in Sources */,
 				0641780021582E620011B8C4 /* XibLoadable.swift in Sources */,
 				064177FE215826560011B8C4 /* UnderlinedFieldView.swift in Sources */,
+				0641780E2160C5D80011B8C4 /* Timberjack.swift in Sources */,
 				064177F22157E8620011B8C4 /* TerminalCollectionViewCell.swift in Sources */,
 				064C2439214E4610004ED165 /* AppDelegate.swift in Sources */,
 				064177F82158230D0011B8C4 /* BaseNavigationController.swift in Sources */,
 				0641780221583BC40011B8C4 /* UIView.swift in Sources */,
+				0641780A2160C51C0011B8C4 /* ApiModels.swift in Sources */,
 				0641780421583C5C0011B8C4 /* UITextField.swift in Sources */,
+				064178102160C67E0011B8C4 /* UserDefaults.swift in Sources */,
 				06A9F8D821503AEF00647ED8 /* UICheckbox.swift in Sources */,
 				06A9F8D6214E71F900647ED8 /* Constants.swift in Sources */,
 				06A9F8DB215041C400647ED8 /* ApplicationRouter.swift in Sources */,
