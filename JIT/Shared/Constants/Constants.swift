@@ -35,5 +35,9 @@ enum Constants {
     enum Messages {
         static let no_internet_connection = "No internet connection"
         static let input_data_was_nil = "Response could not be serialized, input data was nil or zero length."
+        static let error = "Ошибка"
+        static let no_internet = "Отсутствует интернет соединение. Проверьте соединение или попробуйте повторить действие позже."
+        static let no_correct_data = "Необходимо выбрать корректное время"
+        static let no_order = "Введите номер контракта / заказа"
     }
 }

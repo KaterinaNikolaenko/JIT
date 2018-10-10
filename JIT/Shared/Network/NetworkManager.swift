@@ -23,7 +23,7 @@ class NetworkManager {
     private func httpHeaders() -> HTTPHeaders? {
         var headers = HTTPHeaders()
         if let token = UserDefaults.token {
-            headers[HeaderKey.auth] = "Authorization-token \(token)"
+            headers[HeaderKey.auth] = token
         }
         return headers
     }
@@ -52,18 +52,18 @@ class NetworkManager {
         return newRequest
     }
     
-    private func catchErrors(_ error: ApiError) {
-        switch error.code {
-        case .unauthorized, .invalidToken:
-            //            let wrapper = GeneralAlertWrapper(title: "Oops", message: error.message, handler: {
-            //                UserWorker.logout()
-            //            })
-            //            wrapper.show()
-            break
-        default:
-            break
-        }
-    }
+//    private func catchErrors(_ error: ApiError) {
+//        switch error.code {
+//        case .unauthorized, .invalidToken:
+//            //            let wrapper = GeneralAlertWrapper(title: "Oops", message: error.message, handler: {
+//            //                UserWorker.logout()
+//            //            })
+//            //            wrapper.show()
+//            break
+//        default:
+//            break
+//        }
+//    }
     
     private func isReachable() -> Bool {
         if let manager = NetworkReachabilityManager(){

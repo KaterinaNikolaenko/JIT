@@ -10,7 +10,8 @@ target 'JIT' do
 
   # Network
   pod 'Alamofire', '~> 4'
-  pod 'Kingfisher', '~> 4'
+  pod 'Kingfisher', '4.9.0'
+  pod 'ObjectMapper'
   
   # Localization
   pod 'Localize-Swift', '~> 2.0'

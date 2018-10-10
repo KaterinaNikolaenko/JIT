@@ -28,7 +28,6 @@ class SplashViewController: UIViewController {
         checkboxButton.addTarget(self, action: #selector(checkboxTapped), for: .touchUpInside)
         
         getDeviceID()
-        preauthorize()
     }
     
     private func setupContinueButton() {
@@ -41,12 +40,6 @@ class SplashViewController: UIViewController {
         
         let deviceID = UIDevice.current.identifierForVendor?.uuidString
         UserDefaults.deviceID = deviceID
-    }
-    
-    private func preauthorize() {
-        
-        let apiService = ApiService()
-        apiService.preauthorize()
     }
     
     @objc

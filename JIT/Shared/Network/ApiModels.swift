@@ -69,27 +69,33 @@ enum DataRetrievingState {
 }
 
 enum HeaderKey {
-    static let auth = "Authorization"
+    static let auth = "Authorization-token"
 }
 
 enum ErrorCode: Int {
     
     case defaultCode = 0
     
-    case methodIsNotImplemented = 887
-    case errorParsing = 888
-    case failedSaveCoreData = 889
+//    case methodIsNotImplemented = 887
+//    case errorParsing = 888
+//    case failedSaveCoreData = 889
     case noInternet = 890
-    
-    case invalidToken = 997
-    case invalidFields = 998
-    case unverifiedEmail = 999
-    case unfilledRequiredField = 1000
-    case exceededNumberOfResumes = 1001
-    case maintenance = 1005
-    case unsupportedAppVersion = 1006
-    
-    case unauthorized = 401
-    case invalidEntityId = 403
+//
+//    case invalidToken = 997
+//    case invalidFields = 998
+//    case unverifiedEmail = 999
+//    case unfilledRequiredField = 1000
+//    case exceededNumberOfResumes = 1001
+//    case maintenance = 1005
+//    case unsupportedAppVersion = 1006
+//
+//    case unauthorized = 401
+//    case invalidEntityId = 403
     case notFound = 404
+    case TRIP_NOT_FOUND = 800
+    case TERMINAL_NOT_FOUND = 801
+    case VALIDATION = 802
+    case TRIP_WAS_STARTED = 803
+    case TRIP_ORDER_NUMBER_NOT_VALID = 804
+    case TERMINAL_WAS_DELETED = 805
 }

@@ -21,6 +21,9 @@
 		0641780E2160C5D80011B8C4 /* Timberjack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0641780D2160C5D80011B8C4 /* Timberjack.swift */; };
 		064178102160C67E0011B8C4 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0641780F2160C67E0011B8C4 /* UserDefaults.swift */; };
 		064178142160ECF10011B8C4 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064178132160ECF10011B8C4 /* ApiService.swift */; };
+		0641781721615A880011B8C4 /* Terminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0641781621615A880011B8C4 /* Terminal.swift */; };
+		0641781A21615AC30011B8C4 /* Parsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0641781921615AC30011B8C4 /* Parsable.swift */; };
+		0641781C21615AE50011B8C4 /* JsonMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0641781B21615AE50011B8C4 /* JsonMapper.swift */; };
 		064C2439214E4610004ED165 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C2438214E4610004ED165 /* AppDelegate.swift */; };
 		064C243E214E4610004ED165 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 064C243C214E4610004ED165 /* Main.storyboard */; };
 		064C2440214E4613004ED165 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 064C243F214E4613004ED165 /* Assets.xcassets */; };
@@ -32,6 +35,8 @@
 		06A9F8D821503AEF00647ED8 /* UICheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A9F8D721503AEF00647ED8 /* UICheckbox.swift */; };
 		06A9F8DB215041C400647ED8 /* ApplicationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A9F8DA215041C400647ED8 /* ApplicationRouter.swift */; };
 		06A9F8DD2150429100647ED8 /* ViewControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A9F8DC2150429100647ED8 /* ViewControllersFactory.swift */; };
+		06F9341A216E8176003CF596 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F93419216E8176003CF596 /* BaseViewController.swift */; };
+		06F9341C216E81C7003CF596 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F9341B216E81C7003CF596 /* Order.swift */; };
 		9FA85DD6649FAD230A758971 /* Pods_JIT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD8EBA7B5C47150C20DF8FC /* Pods_JIT.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +55,9 @@
 		0641780D2160C5D80011B8C4 /* Timberjack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timberjack.swift; sourceTree = "<group>"; };
 		0641780F2160C67E0011B8C4 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		064178132160ECF10011B8C4 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		0641781621615A880011B8C4 /* Terminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terminal.swift; sourceTree = "<group>"; };
+		0641781921615AC30011B8C4 /* Parsable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parsable.swift; sourceTree = "<group>"; };
+		0641781B21615AE50011B8C4 /* JsonMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonMapper.swift; sourceTree = "<group>"; };
 		064C2435214E4610004ED165 /* JIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		064C2438214E4610004ED165 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		064C243D214E4610004ED165 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,6 +71,8 @@
 		06A9F8D721503AEF00647ED8 /* UICheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckbox.swift; sourceTree = "<group>"; };
 		06A9F8DA215041C400647ED8 /* ApplicationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationRouter.swift; sourceTree = "<group>"; };
 		06A9F8DC2150429100647ED8 /* ViewControllersFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllersFactory.swift; sourceTree = "<group>"; };
+		06F93419216E8176003CF596 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		06F9341B216E81C7003CF596 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		0BD8EBA7B5C47150C20DF8FC /* Pods_JIT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JIT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58120D3A343E077810DE9FF1 /* Pods-JIT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JIT.release.xcconfig"; path = "Pods/Target Support Files/Pods-JIT/Pods-JIT.release.xcconfig"; sourceTree = "<group>"; };
 		7D82A265635EC6E72289CF20 /* Pods-JIT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JIT.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JIT/Pods-JIT.debug.xcconfig"; sourceTree = "<group>"; };
@@ -146,8 +156,20 @@
 		064178152160F0CC0011B8C4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0641781821615AB30011B8C4 /* Utils */,
+				0641781621615A880011B8C4 /* Terminal.swift */,
+				06F9341B216E81C7003CF596 /* Order.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0641781821615AB30011B8C4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0641781921615AC30011B8C4 /* Parsable.swift */,
+				0641781B21615AE50011B8C4 /* JsonMapper.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		064C242C214E4610004ED165 = {
@@ -217,6 +239,7 @@
 			children = (
 				064177F9215825F30011B8C4 /* View */,
 				064177F72158230D0011B8C4 /* BaseNavigationController.swift */,
+				06F93419216E8176003CF596 /* BaseViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -357,6 +380,7 @@
 				"${BUILT_PRODUCTS_DIR}/JVFloatLabeledTextField/JVFloatLabeledTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Localize-Swift/Localize_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
 				"${BUILT_PRODUCTS_DIR}/UICheckbox.Swift/UICheckbox_Swift.framework",
@@ -367,6 +391,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JVFloatLabeledTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Localize_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICheckbox_Swift.framework",
@@ -411,17 +436,22 @@
 				064177F42158124B0011B8C4 /* SendDataViewController.swift in Sources */,
 				0641780021582E620011B8C4 /* XibLoadable.swift in Sources */,
 				064177FE215826560011B8C4 /* UnderlinedFieldView.swift in Sources */,
+				06F9341C216E81C7003CF596 /* Order.swift in Sources */,
+				0641781C21615AE50011B8C4 /* JsonMapper.swift in Sources */,
 				0641780E2160C5D80011B8C4 /* Timberjack.swift in Sources */,
 				064177F22157E8620011B8C4 /* TerminalCollectionViewCell.swift in Sources */,
 				064C2439214E4610004ED165 /* AppDelegate.swift in Sources */,
 				064177F82158230D0011B8C4 /* BaseNavigationController.swift in Sources */,
+				0641781A21615AC30011B8C4 /* Parsable.swift in Sources */,
 				0641780221583BC40011B8C4 /* UIView.swift in Sources */,
 				0641780A2160C51C0011B8C4 /* ApiModels.swift in Sources */,
 				0641780421583C5C0011B8C4 /* UITextField.swift in Sources */,
 				064178102160C67E0011B8C4 /* UserDefaults.swift in Sources */,
+				06F9341A216E8176003CF596 /* BaseViewController.swift in Sources */,
 				06A9F8D821503AEF00647ED8 /* UICheckbox.swift in Sources */,
 				06A9F8D6214E71F900647ED8 /* Constants.swift in Sources */,
 				06A9F8DB215041C400647ED8 /* ApplicationRouter.swift in Sources */,
+				0641781721615A880011B8C4 /* Terminal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
