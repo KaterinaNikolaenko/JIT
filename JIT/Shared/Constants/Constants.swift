@@ -40,4 +40,20 @@ enum Constants {
         static let no_correct_data = "Необходимо выбрать корректное время"
         static let no_order = "Введите номер контракта / заказа"
     }
+    
+    enum DateFormats {
+        static let general = "dd-MM-yyyy"
+        static let birthday = "dd MMM yyyy"
+        static let serverBirthday = "yyyy-MM-dd"
+        static let record = "HH:mm dd MMMM"
+        static let graphsTimeLabel = "HH:mm"
+        static let graphsShortTimeLabel = "H"
+        static let graphsDayLabel = "E"
+        static let graphsDayDateLabel = "d MMMM"
+        static let lowGlucoseDaily = "HH"
+        static let lowGlucoseMontly = "dd"
+        static let timeInTargetDaily = "EEEE d, MMMM yyyy"
+        static let timeInTargetWeekly = "yyyy"
+        static let timeInTargetMontly = "MMMM yyyy"
+    }
 }
