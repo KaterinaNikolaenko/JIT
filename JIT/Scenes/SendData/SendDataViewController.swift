@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SendDataViewController: BaseViewController, UITextFieldDelegate {
 
@@ -20,7 +21,12 @@ class SendDataViewController: BaseViewController, UITextFieldDelegate {
     @IBOutlet weak var timeTextField: UITextField!
     
     var terminal: Terminal?
+    var locationManager: CLLocationManager!
+    
+    private let apiService = ApiService()
     private var selectedDate: Date = Date()
+    private var latitude: Double = 0.0
+    private var longitude: Double = 0.0
     
     // MARK: View Controller lifecyle
     override func viewDidLoad() {
@@ -43,6 +49,7 @@ class SendDataViewController: BaseViewController, UITextFieldDelegate {
         setupUI()
         setupDatePicker()
         setupTimePicker()
+        setupLocation()
     }
     
     private func setupNavigationBar() {
@@ -66,6 +73,19 @@ class SendDataViewController: BaseViewController, UITextFieldDelegate {
         dateTextField.inputView = datePicker
         
         dateTextField.text = Date().createStringWithFormat(Constants.DateFormats.general)
+    }
+    
+    private func setupLocation() {
+        
+        locationManager = CLLocationManager()
+
+        if (CLLocationManager.locationServicesEnabled())
+        {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestAlwaysAuthorization()
+            locationManager.startUpdatingLocation()
+        }
     }
     
     private func setupTimePicker() {
@@ -95,6 +115,58 @@ class SendDataViewController: BaseViewController, UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         self.view.endEditing(true)
+    }
+}
+
+// MARK: Network
+extension SendDataViewController {
+    
+    private func sendLocation() {
+        
+        apiService.sendLocation(longitude: String(longitude), latitude: String(latitude), time: String(Date().timeIntervalSince1970 * 1000)) { (result) in
+            switch result {
+            case .success(_):
+                break
+            case .failure(_):
+                break
+            }
+        }
+    }
+    
+    private func sendOrder()  {
+        
+        apiService.sendTripData(order: Order()) { (result) in
+            switch result {
+            case .success(_): //FIX ME - обновить UI
+                break
+            case .failure(_)://FIX ME - показать ошибку
+                break
+            }
+        }
+    }
+    
+    private func finishTrip() {
+        
+        apiService.finishTrip { (result) in
+            switch result {
+            case .success(_): //FIX ME - вернуться на список
+                break
+            case .failure(_): //FIX ME - показать ошибку
+                break
+            }
+        }
+    }
+}
+
+// MARK: CLLocationManagerDelegate
+extension SendDataViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        let location = locations.last! as CLLocation
+        latitude = location.coordinate.latitude
+        longitude = location.coordinate.longitude
+        print("locations = \(location.coordinate.latitude) \(location.coordinate.longitude)")
     }
 }
 

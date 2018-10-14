@@ -12,6 +12,7 @@ import Alamofire
 typealias ApiJSONResponse = (Result<[String : Any]?>) -> ()
 
 class NetworkManager {
+    
     private var manager : SessionManager?
     static let shared = NetworkManager()
     
@@ -21,6 +22,7 @@ class NetworkManager {
     }
     
     private func httpHeaders() -> HTTPHeaders? {
+        
         var headers = HTTPHeaders()
         if let token = UserDefaults.token {
             headers[HeaderKey.auth] = token
@@ -30,6 +32,7 @@ class NetworkManager {
     
     @discardableResult
     func request(_ apiRequest: ApiRequest, completion: @escaping ApiJSONResponse) -> DataRequest? {
+        
         if !self.isReachable() {
             completion(Result.failure(generalApiError(Constants.Messages.no_internet_connection, code: .noInternet)))
             return nil
@@ -52,20 +55,8 @@ class NetworkManager {
         return newRequest
     }
     
-//    private func catchErrors(_ error: ApiError) {
-//        switch error.code {
-//        case .unauthorized, .invalidToken:
-//            //            let wrapper = GeneralAlertWrapper(title: "Oops", message: error.message, handler: {
-//            //                UserWorker.logout()
-//            //            })
-//            //            wrapper.show()
-//            break
-//        default:
-//            break
-//        }
-//    }
-    
     private func isReachable() -> Bool {
+        
         if let manager = NetworkReachabilityManager(){
             return manager.isReachable
         }
@@ -73,10 +64,12 @@ class NetworkManager {
     }
     
     private func generalApiError(_ message: String, code: ErrorCode) -> ApiError {
+        
         return ApiError(code: code, message: message, messageRu: "", status: 0, json: nil)
     }
 }
 
 private enum ApiErrorKeys {
+    
     static let emptyData = Constants.Messages.input_data_was_nil
 }

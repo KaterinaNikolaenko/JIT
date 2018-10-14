@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//import CoreLocation
 
 class TerminalsViewController: UIViewController {
 
@@ -15,6 +16,7 @@ class TerminalsViewController: UIViewController {
     
     private var terminals = [Terminal]()
     private var refreshControl: UIRefreshControl!
+    private let apiService = ApiService()
     
     // MARK: View Controller lifecyle
     override func viewDidLoad() {
@@ -42,7 +44,6 @@ class TerminalsViewController: UIViewController {
         let itemSize = UIScreen.main.bounds.width/2 - 20
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: itemSize, height: itemSize)
-        
         layout.minimumInteritemSpacing = 5
         layout.minimumLineSpacing = 15
         
@@ -72,9 +73,20 @@ class TerminalsViewController: UIViewController {
         self.navigationItem.backBarButtonItem = backButton
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showDetails" {
+            let viewController = segue.destination as! SendDataViewController
+            viewController.terminal = sender as? Terminal
+        }
+    }
+}
+
+// MARK: Network
+extension TerminalsViewController {
+    
     private func preauthorize() {
         
-        let apiService = ApiService()
         apiService.preauthorize { [unowned self] (result) in
             switch result {
             case .success(_):
@@ -88,7 +100,6 @@ class TerminalsViewController: UIViewController {
     
     private func getTerminals() {
         
-        let apiService = ApiService()
         refreshControl.beginRefreshing()
         apiService.getTerminals({ [unowned self] (result) in
             switch result {
@@ -99,45 +110,20 @@ class TerminalsViewController: UIViewController {
                 self.collectionView.reloadData()
                 
                 self.refreshControl.endRefreshing()
+//                 self.sendLocation()
             case .failure(let error):
                 
                 DispatchQueue.main.async {
                     self.refreshControl.endRefreshing()
                 }
                 self.delay(0.5, closure: {
-                   self.showMessage(error)
+                    self.showMessage(error)
                 })
-
+                
                 self.terminals = []
                 self.collectionView.reloadData()
             }
         })
-    }
-    
-    private func delay(_ delay:Double, closure:@escaping ()->()) {
-        
-        let when = DispatchTime.now() + delay
-        DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
-    }
-    
-    private func showMessage(_ error: ApiError) {
-        
-        let errorMessage = error.code == .noInternet ? Constants.Messages.no_internet : error.message
-        let alert = UIAlertController(title: Constants.Messages.error, message: errorMessage, preferredStyle: .alert)
-
-        alert.view.tintColor = UIColor.primaryYellow
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
-            alert.dismiss(animated: true, completion: nil)
-        }))
-        present(alert, animated: true, completion: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "showDetails" {
-            let viewController = segue.destination as! SendDataViewController
-            viewController.terminal = sender as? Terminal
-        }
     }
 }
 
@@ -161,5 +147,27 @@ extension TerminalsViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         self.performSegue(withIdentifier: Constants.Segues.showDetails, sender: terminals[indexPath.row])
+    }
+}
+
+// MARK: Private
+extension TerminalsViewController {
+    
+    private func delay(_ delay:Double, closure:@escaping ()->()) {
+        
+        let when = DispatchTime.now() + delay
+        DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
+    }
+    
+    private func showMessage(_ error: ApiError) {
+        
+        let errorMessage = error.code == .noInternet ? Constants.Messages.no_internet : error.message
+        let alert = UIAlertController(title: Constants.Messages.error, message: errorMessage, preferredStyle: .alert)
+        
+        alert.view.tintColor = UIColor.primaryYellow
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        present(alert, animated: true, completion: nil)
     }
 }
