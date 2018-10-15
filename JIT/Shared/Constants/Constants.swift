@@ -13,6 +13,11 @@ enum Constants {
     enum UserDefaults {
         static let token = "token"
         static let deviceID = "deviceID"
+        static let orderNumber = "orderNumber"
+        static let dateString = "dateString"
+        static let timeString = "timeString"
+        static let isShowSplash = "isShowSplash"
+        static let terminalTitle = "terminalTitle"
     }
     
     enum Segues {
@@ -26,6 +31,7 @@ enum Constants {
     
     enum ViewControllers {
         static let terminalsViewController = "TerminalsViewController"
+        static let sendDataViewController = "SendDataViewController"
     }
     
     enum URLs {
@@ -39,6 +45,7 @@ enum Constants {
         static let no_internet = "Отсутствует интернет соединение. Проверьте соединение или попробуйте повторить действие позже."
         static let no_correct_data = "Необходимо выбрать корректное время"
         static let no_order = "Введите номер контракта / заказа"
+        static let ok = "OK"
     }
     
     enum DateFormats {

@@ -12,8 +12,8 @@ import ObjectMapper
 public class Order: Mappable {
     
     public var id: Int = 0
-    public var longitude: Int = 0
-    public var latitude: Int = 0
+    public var longitude: Double = 0
+    public var latitude: Double = 0
     public var date_time: Int = 0
     public var order_number: String = ""
     public var cargo_type_id: Int = 0

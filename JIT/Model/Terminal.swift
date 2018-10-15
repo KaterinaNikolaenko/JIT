@@ -16,18 +16,6 @@ struct Terminal: Parsable {
     var name: String
     var address: String
     
-//    static func fromJSON(_ json: [String : Any]) -> [Terminal]? {
-//
-//        var terminals:[Terminal] = []
-//        for item in json {
-//            guard let id = item["id"] as? Int else {return nil}
-//            guard let name = item["name"] as? String else {return nil}
-//            guard let address = item["address"] as? String else {return nil}
-//            terminals.append(Terminal(id: id, name: name, address: address))
-//        }
-//        return terminals
-//    }
-    
     static func fromJSON(_ json: [String : Any]) -> Terminal? {
         
             guard let id = json["id"] as? Int else {return nil}

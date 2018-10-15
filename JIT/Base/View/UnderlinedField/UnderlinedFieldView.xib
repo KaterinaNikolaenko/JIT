@@ -25,7 +25,6 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="f26-dy-EoM"/>
                     </constraints>
-                    <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                     <userDefinedRuntimeAttributes>

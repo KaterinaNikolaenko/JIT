@@ -28,4 +28,49 @@ extension UserDefaults {
             UserDefaults.standard.set(newValue, forKey: Constants.UserDefaults.deviceID)
         }
     }
+    
+    static var order: String? {
+        get {
+            return UserDefaults.standard.object(forKey: Constants.UserDefaults.orderNumber) as? String
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: Constants.UserDefaults.orderNumber)
+        }
+    }
+    
+    static var terminalTitle: String? {
+        get {
+            return UserDefaults.standard.object(forKey: Constants.UserDefaults.terminalTitle) as? String
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: Constants.UserDefaults.terminalTitle)
+        }
+    }
+    
+    static var dateInt: Int? {
+        get {
+            return UserDefaults.standard.object(forKey: Constants.UserDefaults.dateString) as? Int
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: Constants.UserDefaults.dateString)
+        }
+    }
+    
+    static var timeString: String? {
+        get {
+            return UserDefaults.standard.object(forKey: Constants.UserDefaults.timeString) as? String
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: Constants.UserDefaults.timeString)
+        }
+    }
+    
+    static var isShowSplash: Bool? {
+        get {
+            return UserDefaults.standard.object(forKey: Constants.UserDefaults.isShowSplash) as? Bool
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: Constants.UserDefaults.isShowSplash)
+        }
+    }
 }

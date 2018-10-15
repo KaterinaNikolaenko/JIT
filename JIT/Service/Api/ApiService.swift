@@ -87,10 +87,13 @@ class ApiService {
         }
     }
     
-    func finishTrip(_ completion: @escaping (Result<Void>) -> Void) {
+    func finishTrip(idOrder: String, longitude: String, latitude: String, date_time: Int, _ completion: @escaping (Result<Void>) -> Void) {
         
         var params: [String : Any] = [:]
-        params["device_id"] = UserDefaults.deviceID
+        params["id"] = idOrder
+        params["longitude"] = longitude
+        params["latitude"] = latitude
+        params["date_time"] = date_time
         
         let request = ApiRequest(method: .post, path: UserEndpoints.finishTrip.toString(), parameters: params, encoding: URLEncoding.default)
         

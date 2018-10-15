@@ -165,7 +165,7 @@ extension TerminalsViewController {
         let alert = UIAlertController(title: Constants.Messages.error, message: errorMessage, preferredStyle: .alert)
         
         alert.view.tintColor = UIColor.primaryYellow
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+        alert.addAction(UIAlertAction(title: Constants.Messages.ok, style: .default, handler: { (_) in
             alert.dismiss(animated: true, completion: nil)
         }))
         present(alert, animated: true, completion: nil)

@@ -104,6 +104,7 @@ extension SplashViewController {
     
     @IBAction func showTerminalsButtonAction(_ sender: Any) {
         
+        UserDefaults.isShowSplash = false
         let vc = ViewControllersFactory.getTerminals()
         ApplicationRouter.setWithTransition(vc, animation: .transitionFlipFromRight, duration: 0.5, completion: nil)
     }

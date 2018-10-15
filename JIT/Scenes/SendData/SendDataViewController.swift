@@ -27,6 +27,7 @@ class SendDataViewController: BaseViewController, UITextFieldDelegate {
     private var selectedDate: Date = Date()
     private var latitude: Double = 0.0
     private var longitude: Double = 0.0
+    private var orderNumberString: String = ""
     
     // MARK: View Controller lifecyle
     override func viewDidLoad() {
@@ -46,7 +47,11 @@ class SendDataViewController: BaseViewController, UITextFieldDelegate {
         self.view.backgroundColor = UIColor.darkWhite
         mainView.dropShadow(color: .darkGray, opacity: 1, offSet: CGSize(width: -1, height: 1), radius: 4, scale: true)
         
-        setupUI()
+        if UserDefaults.order == nil || UserDefaults.order == "" {
+            setupUI()
+        } else {
+            setupUIAfterSendData() 
+        }
         setupDatePicker()
         setupTimePicker()
         setupLocation()
@@ -55,13 +60,65 @@ class SendDataViewController: BaseViewController, UITextFieldDelegate {
     private func setupNavigationBar() {
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.title = terminal?.name ?? ""
+        if UserDefaults.terminalTitle == nil || UserDefaults.terminalTitle == "" {
+            self.title = terminal?.name ?? ""
+        } else {
+            self.title = UserDefaults.terminalTitle
+        }
     }
     
     private func setupUI() {
         
         address.text = terminal?.address ?? ""
         orderNumber.textField.delegate = self
+        
+        sendButton.isUserInteractionEnabled = true
+        confirmButton.isUserInteractionEnabled = false
+        sendButton.backgroundColor = UIColor.primaryYellow
+        confirmButton.backgroundColor = UIColor.lightGray
+        
+        orderNumber.isUserInteractionEnabled = true
+        dateTextField.isUserInteractionEnabled = true
+        timeTextField.isUserInteractionEnabled = true
+        
+        dateTextField.textColor = UIColor.black
+        timeTextField.textColor = UIColor.black
+        orderNumber.textColor = UIColor.black
+        
+        UserDefaults.terminalTitle = terminal?.name ?? ""
+    }
+    
+    private func setupUIAfterSendData() {
+        
+        orderNumber.textField.text = UserDefaults.order
+        sendButton.isUserInteractionEnabled = false
+        confirmButton.isUserInteractionEnabled = true
+        sendButton.backgroundColor = UIColor.lightGray
+        confirmButton.backgroundColor = UIColor.primaryYellow
+        
+        orderNumber.isUserInteractionEnabled = false
+        dateTextField.isUserInteractionEnabled = false
+        timeTextField.isUserInteractionEnabled = false
+        
+        dateTextField.textColor = UIColor.lightGray
+        timeTextField.textColor = UIColor.lightGray
+        orderNumber.textColor = UIColor.lightGray
+        
+        addBackButton()
+    }
+    
+    func addBackButton() {
+        
+        let backButton = UIButton(type: .custom)
+        backButton.setTitle("", for: .normal)
+        backButton.setTitleColor(.white, for: .normal)
+        backButton.addTarget(self, action: #selector(self.backAction(_:)), for: .touchUpInside)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+    }
+    
+    @objc
+    func backAction(_ sender: Any) {
+        
     }
     
     private func setupDatePicker() {
@@ -135,11 +192,15 @@ extension SendDataViewController {
     
     private func sendOrder()  {
         
-        apiService.sendTripData(order: Order()) { (result) in
+        apiService.sendTripData(order: gatherData()) { [weak self] (result) in
             switch result {
-            case .success(_): //FIX ME - обновить UI
+            case .success(_):
+                UserDefaults.order = self?.orderNumberString
+                UserDefaults.dateInt = Int(self?.selectedDate.timeIntervalSince1970 ?? 0.0) * 1000
+                self?.setupUIAfterSendData()
                 break
-            case .failure(_)://FIX ME - показать ошибку
+            case .failure(let error):
+                self?.showMessage(error)
                 break
             }
         }
@@ -147,14 +208,30 @@ extension SendDataViewController {
     
     private func finishTrip() {
         
-        apiService.finishTrip { (result) in
+        apiService.finishTrip(idOrder: UserDefaults.order ?? "", longitude: String(longitude), latitude: String(latitude), date_time: UserDefaults.dateInt ?? 0) { [weak self] (result) in
             switch result {
-            case .success(_): //FIX ME - вернуться на список
+            case .success(_):
+                UserDefaults.order = ""
+                UserDefaults.dateInt = 0
+                self?.navigationController?.popViewController(animated: true)
                 break
-            case .failure(_): //FIX ME - показать ошибку
+            case .failure(let error):
+                self?.showMessage(error)
                 break
             }
         }
+    }
+    
+    private func gatherData() -> Order {
+        
+        let currentOrder = Order()
+        currentOrder.id = terminal?.id ?? 0
+        currentOrder.latitude = latitude
+        currentOrder.longitude = longitude
+        currentOrder.date_time = Int(selectedDate.timeIntervalSince1970) * 1000
+        currentOrder.order_number = orderNumber.textField.text ?? ""
+        orderNumberString = orderNumber.textField.text ?? ""
+        return currentOrder
     }
 }
 
@@ -166,7 +243,7 @@ extension SendDataViewController: CLLocationManagerDelegate {
         let location = locations.last! as CLLocation
         latitude = location.coordinate.latitude
         longitude = location.coordinate.longitude
-        print("locations = \(location.coordinate.latitude) \(location.coordinate.longitude)")
+//        print("locations = \(location.coordinate.latitude) \(location.coordinate.longitude)")
     }
 }
 
@@ -180,12 +257,32 @@ extension SendDataViewController {
             return
         }
         
-        if selectedDate <= Date() {
+        if selectedDate < Date() {
             showMessageBase(title: "", message: Constants.Messages.no_correct_data)
             return
         }
+        
+        sendOrder()
     }
     
     @IBAction func confirmButtonAction(_ sender: Any) {
+        
+        finishTrip()
+    }
+}
+
+// MARK: Private
+extension SendDataViewController {
+    
+    private func showMessage(_ error: ApiError) {
+        
+        let errorMessage = error.code == .noInternet ? Constants.Messages.no_internet : error.message
+        let alert = UIAlertController(title: Constants.Messages.error, message: errorMessage, preferredStyle: .alert)
+        
+        alert.view.tintColor = UIColor.primaryYellow
+        alert.addAction(UIAlertAction(title: Constants.Messages.ok, style: .default, handler: { (_) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        present(alert, animated: true, completion: nil)
     }
 }

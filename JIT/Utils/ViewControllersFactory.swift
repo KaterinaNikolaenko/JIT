@@ -19,4 +19,15 @@ class ViewControllersFactory {
         navig.viewControllers = [viewController]
         return navig
     }
+    
+    static func getSendData() -> UINavigationController {
+        
+        let storyboard = UIStoryboard(name: Constants.Storyboards.main, bundle: nil)
+        let terminalsVC = storyboard.instantiateViewController(withIdentifier: Constants.ViewControllers.terminalsViewController) as! TerminalsViewController
+        let sendDataVC = storyboard.instantiateViewController(withIdentifier: Constants.ViewControllers.sendDataViewController) as! SendDataViewController
+        
+        let navig = BaseNavigationController()
+        navig.viewControllers = [terminalsVC, sendDataVC]
+        return navig
+    }
 }

@@ -235,7 +235,7 @@
         <!--Send Data View Controller-->
         <scene sceneID="jWY-pt-ddU">
             <objects>
-                <viewController id="uG8-Fa-rD4" customClass="SendDataViewController" customModule="JIT" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SendDataViewController" id="uG8-Fa-rD4" customClass="SendDataViewController" customModule="JIT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NDD-KY-4RS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -303,7 +303,6 @@
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qAm-Gn-uLb" customClass="UnderlinedFieldView" customModule="JIT" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="10" width="290" height="48"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="QnD-wB-sj9"/>
                                         </constraints>
@@ -340,7 +339,6 @@
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="30" id="w5u-QF-yrx"/>
                                                                         </constraints>
-                                                                        <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
@@ -382,7 +380,6 @@
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="30" id="ZqQ-ne-8v4"/>
                                                                         </constraints>
-                                                                        <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
