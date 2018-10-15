@@ -258,7 +258,6 @@ extension SendDataViewController: CLLocationManagerDelegate {
         let location = locations.last! as CLLocation
         latitude = location.coordinate.latitude
         longitude = location.coordinate.longitude
-//        print("locations = \(location.coordinate.latitude) \(location.coordinate.longitude)")
     }
 }
 

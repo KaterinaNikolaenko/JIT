@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import CoreLocation
 
 class TerminalsViewController: UIViewController {
 
@@ -33,9 +32,8 @@ class TerminalsViewController: UIViewController {
     
     private func setup() {
         
-        let authorizationToken = UIDevice.current.identifierForVendor?.uuidString //"WkEQcX2Gkkle4JOTMcOkAsT1y-Uw9FUK99MOasRiSoDucTnSYF"
+        let authorizationToken = UIDevice.current.identifierForVendor?.uuidString
         UserDefaults.token = authorizationToken
-        //        getTerminals()
         preauthorize()
         setupRefreshControl()
         
@@ -75,7 +73,7 @@ class TerminalsViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "showDetails" {
+        if segue.identifier == Constants.Segues.showDetails {
             let viewController = segue.destination as! SendDataViewController
             viewController.terminal = sender as? Terminal
         }
@@ -92,7 +90,7 @@ extension TerminalsViewController {
             case .success(_):
                 self.getTerminals()
                 return
-            case .failure(let error):
+            case .failure(_):
                 return
             }
         }
@@ -110,7 +108,6 @@ extension TerminalsViewController {
                 self.collectionView.reloadData()
                 
                 self.refreshControl.endRefreshing()
-//                 self.sendLocation()
             case .failure(let error):
                 
                 DispatchQueue.main.async {

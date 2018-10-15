@@ -20,7 +20,7 @@ class BaseViewController: UIViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         alert.view.tintColor = UIColor.primaryYellow
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+        alert.addAction(UIAlertAction(title: Constants.Messages.ok, style: .default, handler: { (_) in
             alert.dismiss(animated: true, completion: nil)
         }))
         present(alert, animated: true, completion: nil)
