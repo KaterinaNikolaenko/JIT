@@ -275,10 +275,11 @@ extension SendDataViewController {
         if let orderDate = Date.combineDate(date: selectedDate, withTime: selectedTime) {
             if orderDate < Date() {
                 showMessageBase(title: "", message: Constants.Messages.no_correct_data)
+                return
             }
+        } else {
             return
         }
-        
         sendOrder()
     }
     
