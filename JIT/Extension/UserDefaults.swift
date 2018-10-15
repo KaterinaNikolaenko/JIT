@@ -56,12 +56,21 @@ extension UserDefaults {
         }
     }
     
-    static var timeString: String? {
+    static var selectedDate: Date? {
         get {
-            return UserDefaults.standard.object(forKey: Constants.UserDefaults.timeString) as? String
+            return UserDefaults.standard.object(forKey: Constants.UserDefaults.selectedDate) as? Date
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: Constants.UserDefaults.timeString)
+            UserDefaults.standard.set(newValue, forKey: Constants.UserDefaults.selectedDate)
+        }
+    }
+    
+    static var selectedTime: Date? {
+        get {
+            return UserDefaults.standard.object(forKey: Constants.UserDefaults.selectedTime) as? Date
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: Constants.UserDefaults.selectedTime)
         }
     }
     

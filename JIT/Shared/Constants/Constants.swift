@@ -15,7 +15,8 @@ enum Constants {
         static let deviceID = "deviceID"
         static let orderNumber = "orderNumber"
         static let dateString = "dateString"
-        static let timeString = "timeString"
+        static let selectedDate = "selectedDate"
+        static let selectedTime = "selectedTime"
         static let isShowSplash = "isShowSplash"
         static let terminalTitle = "terminalTitle"
     }

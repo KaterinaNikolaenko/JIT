@@ -25,6 +25,7 @@ class SendDataViewController: BaseViewController, UITextFieldDelegate {
     
     private let apiService = ApiService()
     private var selectedDate: Date = Date()
+    private var selectedTime: Date = Date()
     private var latitude: Double = 0.0
     private var longitude: Double = 0.0
     private var orderNumberString: String = ""
@@ -85,12 +86,21 @@ class SendDataViewController: BaseViewController, UITextFieldDelegate {
         timeTextField.textColor = UIColor.black
         orderNumber.textColor = UIColor.black
         
+        dateTextField.text = Date().createStringWithFormat(Constants.DateFormats.general)
+        timeTextField.text = Date().createStringWithFormat(Constants.DateFormats.graphsTimeLabel)
+        
         UserDefaults.terminalTitle = terminal?.name ?? ""
     }
     
     private func setupUIAfterSendData() {
         
         orderNumber.textField.text = UserDefaults.order
+        
+        selectedDate = UserDefaults.selectedDate ?? Date()
+        selectedTime = UserDefaults.selectedTime ?? Date()
+        dateTextField.text = selectedDate.createStringWithFormat(Constants.DateFormats.general)
+        timeTextField.text = selectedTime.createStringWithFormat(Constants.DateFormats.graphsTimeLabel)
+        
         sendButton.isUserInteractionEnabled = false
         confirmButton.isUserInteractionEnabled = true
         sendButton.backgroundColor = UIColor.lightGray
@@ -117,9 +127,7 @@ class SendDataViewController: BaseViewController, UITextFieldDelegate {
     }
     
     @objc
-    func backAction(_ sender: Any) {
-        
-    }
+    func backAction(_ sender: Any) {}
     
     private func setupDatePicker() {
         
@@ -128,8 +136,6 @@ class SendDataViewController: BaseViewController, UITextFieldDelegate {
         datePicker.locale = Locale(identifier: "ru_RU")
         datePicker.addTarget(self, action: #selector(datePickerValueChanged(sender:)), for: .valueChanged)
         dateTextField.inputView = datePicker
-        
-        dateTextField.text = Date().createStringWithFormat(Constants.DateFormats.general)
     }
     
     private func setupLocation() {
@@ -151,8 +157,6 @@ class SendDataViewController: BaseViewController, UITextFieldDelegate {
         datePicker.datePickerMode = UIDatePickerMode.time
         datePicker.addTarget(self, action: #selector(timePickerValueChanged(sender:)), for: .valueChanged)
         timeTextField.inputView = datePicker
-        
-        timeTextField.text = Date().createStringWithFormat(Constants.DateFormats.graphsTimeLabel)
     }
     
     @objc
@@ -166,7 +170,7 @@ class SendDataViewController: BaseViewController, UITextFieldDelegate {
     func timePickerValueChanged(sender: UIDatePicker) {
 
         timeTextField.text = sender.date.createStringWithFormat(Constants.DateFormats.graphsTimeLabel)
-        selectedDate = sender.date
+        selectedTime = sender.date
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -196,7 +200,10 @@ extension SendDataViewController {
             switch result {
             case .success(_):
                 UserDefaults.order = self?.orderNumberString
+                UserDefaults.selectedDate = self?.selectedDate
+                UserDefaults.selectedTime = self?.selectedTime
                 UserDefaults.dateInt = Int(self?.selectedDate.timeIntervalSince1970 ?? 0.0) * 1000
+                
                 self?.setupUIAfterSendData()
                 break
             case .failure(let error):
@@ -212,6 +219,8 @@ extension SendDataViewController {
             switch result {
             case .success(_):
                 UserDefaults.order = ""
+                UserDefaults.selectedDate = nil
+                UserDefaults.selectedTime = nil
                 UserDefaults.dateInt = 0
                 self?.navigationController?.popViewController(animated: true)
                 break
