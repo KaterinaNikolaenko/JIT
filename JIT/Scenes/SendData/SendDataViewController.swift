@@ -240,10 +240,12 @@ extension SendDataViewController {
         currentOrder.id = terminal?.id ?? 0
         currentOrder.latitude = latitude
         currentOrder.longitude = longitude
+        
         let orderDate = Date.combineDate(date: selectedDate, withTime: selectedTime)
         currentOrder.date_time = Int(orderDate!.timeIntervalSince1970) * 1000
         currentOrder.order_number = orderNumber.textField.text ?? ""
         orderNumberString = orderNumber.textField.text ?? ""
+        
         return currentOrder
     }
 }
@@ -270,8 +272,10 @@ extension SendDataViewController {
             return
         }
         
-        if selectedDate < Date() {
-            showMessageBase(title: "", message: Constants.Messages.no_correct_data)
+        if let orderDate = Date.combineDate(date: selectedDate, withTime: selectedTime) {
+            if orderDate < Date() {
+                showMessageBase(title: "", message: Constants.Messages.no_correct_data)
+            }
             return
         }
         
