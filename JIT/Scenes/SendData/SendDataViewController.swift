@@ -88,6 +88,8 @@ class SendDataViewController: BaseViewController, UITextFieldDelegate {
         
         dateTextField.text = Date().createStringWithFormat(Constants.DateFormats.general)
         timeTextField.text = Date().createStringWithFormat(Constants.DateFormats.graphsTimeLabel)
+        selectedDate = Date()
+        selectedTime = Date()
         
         UserDefaults.terminalTitle = terminal?.name ?? ""
     }
@@ -202,7 +204,6 @@ extension SendDataViewController {
                 UserDefaults.order = self?.orderNumberString
                 UserDefaults.selectedDate = self?.selectedDate
                 UserDefaults.selectedTime = self?.selectedTime
-                UserDefaults.dateInt = Int(self?.selectedDate.timeIntervalSince1970 ?? 0.0) * 1000
                 
                 self?.setupUIAfterSendData()
                 break
@@ -215,13 +216,15 @@ extension SendDataViewController {
     
     private func finishTrip() {
         
-        apiService.finishTrip(idOrder: UserDefaults.order ?? "", longitude: String(longitude), latitude: String(latitude), date_time: UserDefaults.dateInt ?? 0) { [weak self] (result) in
+        let orderDate = Date.combineDate(date: selectedDate, withTime: selectedTime)
+        let orderDateInt: Int = Int(orderDate?.timeIntervalSince1970 ?? 0) * 1000
+            
+        apiService.finishTrip(idOrder: UserDefaults.order ?? "", longitude: String(longitude), latitude: String(latitude), date_time: orderDateInt) { [weak self] (result) in
             switch result {
             case .success(_):
                 UserDefaults.order = ""
                 UserDefaults.selectedDate = nil
                 UserDefaults.selectedTime = nil
-                UserDefaults.dateInt = 0
                 self?.navigationController?.popViewController(animated: true)
                 break
             case .failure(let error):
@@ -237,7 +240,8 @@ extension SendDataViewController {
         currentOrder.id = terminal?.id ?? 0
         currentOrder.latitude = latitude
         currentOrder.longitude = longitude
-        currentOrder.date_time = Int(selectedDate.timeIntervalSince1970) * 1000
+        let orderDate = Date.combineDate(date: selectedDate, withTime: selectedTime)
+        currentOrder.date_time = Int(orderDate!.timeIntervalSince1970) * 1000
         currentOrder.order_number = orderNumber.textField.text ?? ""
         orderNumberString = orderNumber.textField.text ?? ""
         return currentOrder

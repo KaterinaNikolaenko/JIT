@@ -16,3 +16,23 @@ extension Date {
         return dateFormatter.string(from: self)
     }
 }
+
+extension Date {
+    
+    static func combineDate(date: Date, withTime time: Date) -> Date? {
+        
+        let gregorian = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
+        
+        var dateComponents = gregorian?.components([.year, .month, .day], from: date)
+        let timeComponents = gregorian?.components([.hour, .minute, .second], from: time)
+        
+        dateComponents?.second = timeComponents?.second ?? 0
+        dateComponents?.minute = timeComponents?.minute ?? 0
+        dateComponents?.hour = timeComponents?.hour ?? 0
+        
+        if let _ = dateComponents {
+            return gregorian?.date(from: dateComponents!)
+        }
+        return nil
+    }
+}

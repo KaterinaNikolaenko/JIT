@@ -47,15 +47,6 @@ extension UserDefaults {
         }
     }
     
-    static var dateInt: Int? {
-        get {
-            return UserDefaults.standard.object(forKey: Constants.UserDefaults.dateString) as? Int
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: Constants.UserDefaults.dateString)
-        }
-    }
-    
     static var selectedDate: Date? {
         get {
             return UserDefaults.standard.object(forKey: Constants.UserDefaults.selectedDate) as? Date
