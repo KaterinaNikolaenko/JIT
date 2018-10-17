@@ -29,6 +29,7 @@ class SendDataViewController: BaseViewController, UITextFieldDelegate {
     private var latitude: Double = 0.0
     private var longitude: Double = 0.0
     private var orderNumberString: String = ""
+    private var isSendLocation: Bool = false
     
     // MARK: View Controller lifecyle
     override func viewDidLoad() {
@@ -191,6 +192,7 @@ extension SendDataViewController {
             case .success(_):
                 break
             case .failure(_):
+//                self?.showMessage(error)
                 break
             }
         }
@@ -205,6 +207,7 @@ extension SendDataViewController {
                 UserDefaults.selectedDate = self?.selectedDate
                 UserDefaults.selectedTime = self?.selectedTime
                 
+                self?.sendLocation()
                 self?.setupUIAfterSendData()
                 break
             case .failure(let error):
@@ -258,6 +261,11 @@ extension SendDataViewController: CLLocationManagerDelegate {
         let location = locations.last! as CLLocation
         latitude = location.coordinate.latitude
         longitude = location.coordinate.longitude
+        
+        if UserDefaults.order != nil && UserDefaults.order != "" && isSendLocation == false {
+            sendLocation()
+            isSendLocation = true
+        }
     }
 }
 
