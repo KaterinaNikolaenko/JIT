@@ -47,8 +47,8 @@ class NetworkManager {
                                                         completion(Result.success(result as? [String : Any] ?? [:]))
                                                     } else {
                                                         if let error = tempResult?["error"] as? [String : Any] {
-                                                            let errorMessage = error["message"] as! String
-                                                            let errorCodeInt = error["code"] as! Int
+                                                            let errorMessage = error["message"] as? String ?? ""
+                                                            let errorCodeInt = error["code"] as? Int ?? 404
                                                             let errorCode = ErrorCode(rawValue: errorCodeInt) ?? .notFound
                                                             completion(Result.failure(self.generalApiError(errorMessage, code: errorCode)))
                                                         } else {
