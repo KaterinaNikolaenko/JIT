@@ -25,7 +25,7 @@
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>App needs Location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>App needs Location</string>
+	<string>Ваше текущее местоположение будет отправлено в порт для обновления данных о ваших координатах.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

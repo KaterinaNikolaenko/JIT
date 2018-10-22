@@ -38,20 +38,35 @@ class NetworkManager {
             return nil
         }
         let newRequest = manager?.request(apiRequest.path, method: apiRequest.method, parameters: apiRequest.parameters,
-                                          encoding: apiRequest.encoding, headers: self.httpHeaders())
-        
-        newRequest?.validate(statusCode: 0...300).responseJSON(completionHandler: { [unowned self] (response) in
-            switch response.result {
-            case .success(let result):
-                completion(Result.success(result as? [String : Any] ?? [:]))
-            case .failure(let error):
-                if error.localizedDescription == ApiErrorKeys.emptyData {
-                    completion(Result.success([:]))
-                    return
-                }
-                completion(Result.failure(self.generalApiError(error.localizedDescription, code: .notFound)))
-            }
-        })
+                                          encoding: apiRequest.encoding, headers: self.httpHeaders()).responseJSON(completionHandler: { [unowned self] (response) in
+                                            switch response.result {
+                                            case .success(let result):
+                                                let tempResult = result as? [String : Any]
+                                                if let success = tempResult?["success"] as? Bool {
+                                                    if success {
+                                                        completion(Result.success(result as? [String : Any] ?? [:]))
+                                                    } else {
+                                                        if let error = tempResult?["error"] as? [String : Any] {
+                                                            let errorMessage = error["message"] as! String
+                                                            let errorCodeInt = error["code"] as! Int
+                                                            let errorCode = ErrorCode(rawValue: errorCodeInt) ?? .notFound
+                                                            completion(Result.failure(self.generalApiError(errorMessage, code: errorCode)))
+                                                        } else {
+                                                            completion(Result.failure(self.generalApiError("", code: .notFound)))
+                                                        }
+                                                    }
+                                                } else {
+                                                    completion(Result.success(result as? [String : Any] ?? [:]))
+                                                }
+                                            case .failure(let error):
+                                                if error.localizedDescription == ApiErrorKeys.emptyData {
+                                                    completion(Result.success([:]))
+                                                    return
+                                                }
+                                                completion(Result.failure(self.generalApiError(error.localizedDescription, code: .notFound)))
+                                            }
+                                            
+                                          })
         return newRequest
     }
     
