@@ -23,7 +23,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>App needs Location</string>
+	<string>Ваше текущее местоположение будет отправлено в порт для обновления данных о ваших координатах.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Ваше текущее местоположение будет отправлено в порт для обновления данных о ваших координатах.</string>
 	<key>UILaunchStoryboardName</key>
